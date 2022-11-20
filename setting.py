@@ -12,6 +12,7 @@ class Main(QMainWindow, ui_setting.Ui_MainWindow):
         self.ini.set('home', 'last', str(self.last.value()))
         print(self.last.value())
         self.ini.write(open("config.ini", "w"))
+        self.close()
 
     def __init__(self):
         QMainWindow.__init__(self)

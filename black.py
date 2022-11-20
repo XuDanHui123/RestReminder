@@ -2,12 +2,12 @@ import tkinter
 import configparser
 
 root = tkinter.Tk() 
-# root.overrideredirect(True)
+root.overrideredirect(True) #pull时删除此句注释
 root.config(bg="Black")
 length_1 = root.winfo_screenheight()
 width_1 = root.winfo_screenwidth()
 root.geometry(str(width_1) + "x" + str(length_1))
-root.wm_attributes("-topmost", 1)
+# root.wm_attributes("-topmost", 1)
 ini = configparser.ConfigParser()
 ini.read("./config.ini", encoding='utf-8')
 last = ini.getint('home', 'last')
