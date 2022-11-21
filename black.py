@@ -2,7 +2,7 @@ import tkinter
 import configparser
 
 root = tkinter.Tk() 
-root.overrideredirect(True) #pull时删除此句注释
+# root.overrideredirect(True) #pull时删除此句注释
 root.config(bg="Black")
 length_1 = root.winfo_screenheight()
 width_1 = root.winfo_screenwidth()
