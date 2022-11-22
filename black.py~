@@ -17,6 +17,4 @@ rest_label = tkinter.Label(text="Have a rest for " + str(last) + " minute(s)",
                            font = ("Consolas", 36)
                            )
 rest_label.place(relx=.5, rely=.5,anchor= tkinter.CENTER)
-skip_bnt = tkinter.Button(text=" ◀ Skip Rest",command=root.destroy, bg='black', fg='white', font=('Consolas', 16))
-skip_bnt.place(relx=.1, rely=.9, anchor=tkinter.CENTER)
 root.mainloop()
