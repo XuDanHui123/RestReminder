@@ -8,9 +8,7 @@ class Main(QMainWindow, ui_setting.Ui_MainWindow):
 
     def save(self):
         self.ini.set('home', 'between', str(self.between.value()))
-        print(self.between.value())
         self.ini.set('home', 'last', str(self.last.value()))
-        print(self.last.value())
         self.ini.write(open("config.ini", "w"))
         self.close()
 
@@ -28,6 +26,11 @@ class Main(QMainWindow, ui_setting.Ui_MainWindow):
         self.last.setProperty("value", last)
         self.pushButton.clicked.connect(self.save)
 
+def run():
+    app = QApplication(sys.argv)
+    window = Main()
+    window.show()
+    sys.exit(app.exec_())
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

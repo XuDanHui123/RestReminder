@@ -3,6 +3,7 @@ import os
 import time
 import tkinter
 import configparser
+import setting
 # import heartrate
 
 # heartrate.trace(browser=True)
@@ -13,9 +14,7 @@ class init():
         used = self.ini.getint('home','used')
         if(used==0):
             del self.ini
-            print('s')
-            os.system("setting.py")
-            print('e')
+            os.system('setting.exe')
             self.ini = configparser.ConfigParser();
             self.ini.read("./config.ini", encoding='utf-8')
             self.ini.set('home', 'used', '1')
@@ -24,14 +23,9 @@ class init():
 
     def rest(self):
         while True:
-            print(time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime()))
             time.sleep(self.ini.getint('home','between')*60)
-            print(time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime()))
-            p = Process(target=self.scr,args=())
-            p.start()
+            os.system('black.py')
             time.sleep(self.ini.getint('home','last')*60)
-            print(time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime()))
-            self.root.destroy()
 
 if __name__ == '__main__':
     init()
