@@ -30,11 +30,13 @@ class init():
         self.ini.set('home', 'used', '1')
         self.ini.write(open("config.ini", "w"))
         root = 'C:\\Users\\'+self.username+'\\AppData\\Local\\RestReminder'
+        if(os.path.exists(root)==True):
+            os.system('del '+root+' /Q ')    
         os.system('mkdir ' + root)
         print('type nul> '+root+'\\root.txt')
         os.system('type nul> '+root+'\\root.txt')
         os.system('echo '+self.fileroot+'> ' + root + '\\root.txt')
-        # os.system('''copy startup.bat "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"''')
+        os.system('''copy startup.exe "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"''')
 
 
 if __name__ == '__main__':
