@@ -1,6 +1,7 @@
 import sys
 import ui_setting
 import configparser
+import os
 from PyQt5.QtWidgets import *
 
 
@@ -11,6 +12,16 @@ class Main(QMainWindow, ui_setting.Ui_MainWindow):
         self.ini.set('home', 'last', str(self.last.value()))
         self.ini.write(open("config.ini", "w"))
         self.close()
+        if self.checkBox.isChecked() == True:
+            print('True')
+            os.system(
+                '''copy StartUp.lnk "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"''')
+        else:
+            print('False')
+            os.system(
+                '''del "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\StartUp.lnk"''')
+
+        return
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -26,14 +37,13 @@ class Main(QMainWindow, ui_setting.Ui_MainWindow):
         self.last.setProperty("value", last)
         self.pushButton.clicked.connect(self.save)
 
+
 def run():
     app = QApplication(sys.argv)
     window = Main()
     window.show()
     sys.exit(app.exec_())
 
+
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = Main()
-    window.show()
-    sys.exit(app.exec_())
+    run()

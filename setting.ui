@@ -56,6 +56,16 @@
      </layout>
     </item>
     <item>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="text">
+       <string>开机自启</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="pushButton">
       <property name="text">
        <string>保存设置(重启后生效)</string>

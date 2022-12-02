@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'e:\python\rest\setting.ui'
+# Form implementation generated from reading ui file 'e:\RestReminder\setting.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(400, 145))
         MainWindow.setMaximumSize(QtCore.QSize(400, 145))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("./setting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("e:\\RestReminder\\setting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -39,6 +39,10 @@ class Ui_MainWindow(object):
         self.last.setObjectName("last")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.last)
         self.verticalLayout.addLayout(self.formLayout)
+        self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox.setChecked(True)
+        self.checkBox.setObjectName("checkBox")
+        self.verticalLayout.addWidget(self.checkBox)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout.addWidget(self.pushButton)
@@ -50,10 +54,12 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "设置"))
         self.jiangeLabel.setText(_translate("MainWindow", "休息时间间隔(单位:分钟)"))
         self.lastLabel.setText(_translate("MainWindow", "休息时间(单位:分钟)"))
+        self.checkBox.setText(_translate("MainWindow", "开机自启"))
         self.pushButton.setText(_translate("MainWindow", "保存设置(重启后生效)"))
